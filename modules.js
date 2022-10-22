@@ -1,7 +1,17 @@
-const {people, ages} = require('./people');
+const http = require('http');
 
-console.log(ages, people)
+const server = http.createServer((req, res)=>{
+    if(req.url === '/'){
+        res.end(`Welcome ExtraMortals!!!`)
+    };
+    if(req.url === '/about'){
+        res.end(`We go the Extra Mile`)
+    };
+    res.end(`
+        <h1>Anaye,!!! </h1>
+        <p>Wetin You Dey Find No Dey Here</p>
+        <a href="/">Pada Si ile</a>
+    `);
+});
 
-const os = require('os');
-
-console.log(os.platform(), os.homedir())
+server.listen(5500)
